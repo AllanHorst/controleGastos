@@ -1,0 +1,49 @@
+package br.edu.unisep.servlet;
+
+import java.io.IOException;
+import java.util.List;
+
+import javax.servlet.RequestDispatcher;
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import br.edu.unisep.model.dao.CaronaDAO;
+import br.edu.unisep.model.dao.CidadeDAO;
+import br.edu.unisep.model.vo.CaronaVO;
+import br.edu.unisep.model.vo.CidadeVO;
+
+@WebServlet("/restrito/pesquisarCaronas")
+public class PesquisarCaronasServlet extends HttpServlet {
+
+	@Override
+	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		String origem = req.getParameter("cidadeOrigem");
+		String destino = req.getParameter("cidadeDestino");
+
+		Integer idOrigem = null;
+		if (origem != null && origem.equals("")) {
+			idOrigem = Integer.parseInt(origem);
+		}
+		Integer idDestino = null;
+		if (destino != null) {
+			idDestino = Integer.parseInt(destino);
+
+		}
+
+		CaronaDAO dao = new CaronaDAO();
+		List<CaronaVO> lista = dao.pesquisarCarona(idOrigem, idDestino);
+		req.setAttribute("listaCaronas", lista);
+
+		CidadeDAO daoCidade = new CidadeDAO();
+		List<CidadeVO> listaCidades = daoCidade.listar(CidadeVO.class);
+
+		req.setAttribute("cidadesOrigem", listaCidades);
+		req.setAttribute("cidadesDestino", listaCidades);
+
+		RequestDispatcher rd = req.getRequestDispatcher("listaCaronas.jsp");
+		rd.forward(req, resp);
+	}
+}

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core">
+<head>
+<meta charset="utf-8" />
+<title>Locadora de veículos</title>
+</head>
+<body>
+	<ui:composition template="template.xhtml">
+		<ui:define name="conteudo">
+
+			<h:form styleClass="container">
+				<h:dataTable value="#{listaVeiculosBean.listaVeiculos}" var="v"
+					styleClass="bordered striped">
+					<h:column>
+						<f:facet name="header">Veículo</f:facet>
+						<h:outputText value="#{v.descricao}"></h:outputText>
+					</h:column>
+		
+					<h:column>
+						<f:facet name="header">Ano</f:facet>
+						<h:outputText value="#{v.ano}"></h:outputText>
+					</h:column>
+		
+					<h:column>
+						<f:facet name="header">Valor</f:facet>
+						<h:outputText value="#{v.valor}">
+							<f:convertNumber type="currency" currencySymbol="R$" />
+						</h:outputText>
+					</h:column>
+		
+					<h:column>
+						<f:facet name="header">Data disponível</f:facet>
+						<h:outputText value="#{v.data}">
+							<f:converter converterId="localDateConverter" />
+						</h:outputText>
+					</h:column>
+		
+					<h:column>
+						<f:facet name="header"></f:facet>
+						<h:commandLink actionListener="#{listaVeiculosBean.excluirVeiculo(v)}"
+							styleClass="red-text text-darken-1">
+							<i class="fa fa-trash-o fa-lg"></i>
+						</h:commandLink>
+					</h:column>
+		
+				</h:dataTable>
+		
+			</h:form>
+			
+		</ui:define>
+	</ui:composition>
+</body>
+</html>

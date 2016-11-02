@@ -1,0 +1,17 @@
+commentBorder=\#FFFFFF | null | null | null | null | null
+commentText=\#FFFFFF | null | null | null | null | null
+declBoder=\#A7EC21 | null | null | null | null | null
+doctypeExternalId=\#A7EC21 | null | null | null | null | null
+doctypeExternalPubref=\#A7EC21 | null | null | null | null | null
+doctypeExtrenalSysref=\#A7EC21 | null | null | null | null | null
+doctypeName=\#A7EC21 | null | null | null | null | null
+eclipse.preferences.version=1
+entityReference=\#FF007F | null | null | null | null | null
+newFileTemplateName=JSF File
+org.eclipse.wst.sse.ui.custom_templates=<?xml version\="1.0" encoding\="UTF-8" standalone\="no"?><templates><template autoinsert\="true" context\="html_new" deleted\="false" description\="" enabled\="true" name\="JSF File">&lt;\!DOCTYPE html&gt;&\#13;\r\n&\#13;\r\n&lt;html xmlns\="http\://www.w3.org/1999/xhtml"&\#13;\r\n\txmlns\:ui\="http\://xmlns.jcp.org/jsf/facelets"&\#13;\r\n\txmlns\:h\="http\://xmlns.jcp.org/jsf/html"&\#13;\r\n\txmlns\:f\="http\://xmlns.jcp.org/jsf/core"&gt;&\#13;\r\n&lt;head&gt;&\#13;\r\n\t&lt;meta charset\="utf-8" /&gt;&\#13;\r\n\t&lt;title&gt;&lt;/title&gt;&\#13;\r\n&lt;/head&gt;&\#13;\r\n&lt;body&gt;&\#13;\r\n\t&\#13;\r\n&lt;/body&gt;&\#13;\r\n&lt;/html&gt;&\#13;\r\n</template></templates>
+tagAttributeEquals=\#CFBFAD | null | null | null | null | null
+tagAttributeName=\#CFBFAD | null | null | null | null | null
+tagAttributeValue=\#ECE47E | null | null | null | null | null
+tagBorder=\#CFBFAD | null | null | null | null | null
+tagName=\#CFBFAD | null | null | null | null | null
+xmlContent=\#CFBFAD | null | null | null | null | null

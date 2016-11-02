@@ -1,0 +1,4 @@
+#Tomcat publish data
+#Mon Oct 31 19:39:25 BRST 2016
+org.eclipse.jst.j2ee.server\:lib_unisep=C\:\\apache-tomcat-8.0.37\\webapps\\cinema\\WEB-INF\\lib\\lib_unisep.jar
+org.eclipse.jst.jee.server\:cinema=C\:\\apache-tomcat-8.0.37\\webapps\\cinema

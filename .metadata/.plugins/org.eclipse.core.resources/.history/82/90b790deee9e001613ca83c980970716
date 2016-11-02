@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core">
+<head>
+<meta charset="utf-8" />
+<title>Locadora de veículos</title>
+</head>
+<body>
+	<ui:composition template="template.xhtml">
+		<ui:define name="conteudo">
+			<h:form styleClass="container">
+				<h:dataTable value="#{listaSessoesBean.lista}" var="s"
+					styleClass="bordered striped">
+					<h:column>
+						<f:facet name="header">Filme</f:facet>
+						<h:outputText value="#{s.filme.nome}"></h:outputText>
+					</h:column>
+					
+					<h:column>
+						<f:facet name="header">Gênero</f:facet>
+						<h:outputText value="#{s.filme.genero}"></h:outputText>
+					</h:column>
+		
+					<h:column>
+						<f:facet name="header">Horário</f:facet>
+						<h:outputText value="#{s.horario}"></h:outputText>
+					</h:column>
+		
+					<h:column>
+						<f:facet name="header">Lugares</f:facet>
+						<h:outputText value="#{s.numeroLugares}" />
+					</h:column>
+		
+				</h:dataTable>
+		
+			<h:commandButton value="Nova sessão" styleClass="btn btn-primary" actionListener="${}" />
+			</h:form>
+		</ui:define>
+	</ui:composition>
+</body>
+</html>
