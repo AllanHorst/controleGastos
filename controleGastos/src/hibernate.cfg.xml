@@ -4,7 +4,7 @@
   <session-factory>  
     <property name="hibernate.current_session_context_class">thread</property>
     <property name="hibernate.ogm.datastore.provider">mongodb</property>
-    <property name="hibernate.ogm.datastore.database">cinemongo</property>
+    <property name="hibernate.ogm.datastore.database">controleGastos</property>
     <property name="hibernate.ogm.datastore.create_database">true</property>
     
     <property name="hibernate.ogm.datastore.username"></property>
@@ -20,7 +20,6 @@
     <!-- Classes Mapeadas -->
     
     <mapping class="br.edu.unisep.model.vo.FilmeVO"/>
-    <mapping class="br.edu.unisep.model.vo.SessaoVO"/>
 
   </session-factory>
 </hibernate-configuration>  
