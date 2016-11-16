@@ -19,7 +19,11 @@
 
     <!-- Classes Mapeadas -->
     
-    <mapping class="br.edu.unisep.model.vo.FilmeVO"/>
+    <mapping class="br.edu.unisep.model.vo.ContaPagarReceberVO"/>
+    <mapping class="br.edu.unisep.model.vo.ContaVO"/>
+    <mapping class="br.edu.unisep.model.vo.ParcelaVO"/>
+    <mapping class="br.edu.unisep.model.vo.SalarioVO"/>
+    <mapping class="br.edu.unisep.model.vo.UsuarioVO"/>
 
   </session-factory>
 </hibernate-configuration>  

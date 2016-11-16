@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core">
+<head>
+	<meta charset="utf-8" />
+	<title></title>
+</head>
+<body>
+		<ui:composition template="../template.xhtml">
+		<ui:define name="conteudo">
+
+			<h:form styleClass="container">
+				<h:dataTable value="#{listaUsuariosBean.listaUsuarios}" var="u"
+					styleClass="bordered striped">
+					<h:column>
+						<f:facet name="header">Nome</f:facet>
+						<h:outputText value="#{u.nome}"></h:outputText>
+					</h:column>
+		
+					<h:column>
+						<f:facet name="header">E-mail</f:facet>
+						<h:outputText value="#{u.email}"></h:outputText>
+					</h:column>
+		
+					<h:column>
+						<f:facet name="header">Administrador</f:facet>
+						<h:outputText value="#{u.administrador}"></h:outputText>
+					</h:column>
+		
+					<h:column>
+						<f:facet name="header"></f:facet>
+						<h:commandLink actionListener="#{listaUsuariosBean.excluir(u)}"
+							styleClass="red-text text-darken-1">
+							<i class="fa fa-trash-o fa-lg"></i>
+						</h:commandLink>
+					</h:column>
+		
+				</h:dataTable>
+		
+			</h:form>
+		</ui:define>
+	</ui:composition>
+</body>
+</html>
