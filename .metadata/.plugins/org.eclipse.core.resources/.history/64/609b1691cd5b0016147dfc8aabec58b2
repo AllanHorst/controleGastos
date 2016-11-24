@@ -1,7 +1,0 @@
-package br.edu.unisep.servlet;
-
-import javax.servlet.http.HttpServlet;
-
-public class CalcularImcServlet extends HttpServlet{
-
-}

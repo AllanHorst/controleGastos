@@ -6,6 +6,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 
 import org.hibernate.annotations.GenericGenerator;
 
@@ -23,7 +24,7 @@ public class ContaPagarReceberVO {
 
 	private String tipo;
 	
-	@ManyToOne
+	@OneToMany
 	private List<ParcelaVO> parcelas;
 
 	public String getId() {

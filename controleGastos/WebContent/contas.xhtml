@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+<head>
+	<meta charset="utf-8" />
+	<title>Contas a Receber/Pagar</title>
+</head>
+<body>
+	<ui:composition template="template.xhtml">
+		<ui:define name="conteudo">
+			<h:form styleClass="container">
+			
+			<h3>Contas a Receber/Pagar</h3>
+			
+			<div class="row">
+					<div class="Col s10">
+				
+						<div class="input-field col s5">
+							<h:outputLabel value="Descrição" for="descricao" />
+							<h:inputText value="#{novaContaBean.conta.descricao}"
+								required="true"
+								requiredMessage="O campo descrição é obrigatório !"
+								id="descricao" />
+								
+							<h:message for="descricao" styleClass="error-message"></h:message>
+						</div>	
+					</div>	
+				</div>
+				
+				<div class="row">
+					<div class="Col s10">
+						<div class="input-field col s5">
+							<h:outputLabel value="Valor" for="valor" />
+							<h:inputText value="#{novaContaBean.conta.valor}" 
+								required="true" 
+								requiredMessage="O campo Valor é obrigatório !"
+								id="valor"/>
+								
+							<h:message for="valor" styleClass="error-message"></h:message>
+						</div>
+					</div>
+				</div>
+				
+				<div class="row">
+					<div class="Col s6">
+						<div class="input-field col s5">
+							<h:outputLabel value="Tipo da Conta" for="tipo" />
+							<h:selectOneMenu value="#{novaContaBean.conta.tipo}" 
+								styleClass="browser-default"
+		
+								id="tipo"/>
+							
+							<h:message for="tipo" styleClass="error-message" />
+						</div>
+					</div>
+				</div>
+				
+				<div class="row">
+					<div class="Col s2">
+						<div class="input-field col s2">
+							<h:outputLabel value="Quantidade de Parcelas" for="parcelas" />
+							<h:inputText value="#{novaContaBean.conta.parcelas}" />
+						</div>
+					</div>
+				</div>
+				
+				<h:commandButton class="waves-effect red btn fa fa-close" 
+					value="Cancelar"
+					action="index?faces-redirect=true"
+					immediate="true"/>	
+						
+				&#160;
+						
+				<h:commandButton class="waves-effect darken-1 btn fa fa-check" 
+					value="Salvar" 
+					action="#{novaContaBean.salvar}" /> 	
+					
+			</h:form>
+		</ui:define>
+	</ui:composition>
+</body>
+</html>

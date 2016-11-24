@@ -1,5 +1,7 @@
 package br.edu.unisep.model.vo;
 
+import java.util.Date;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -18,7 +20,7 @@ public class SalarioVO {
 
 	private String descricao;
 
-	private Integer diaMesRecebimento;
+	private Date diaMesRecebimento;
 
 	public String getId() {
 		return id;
@@ -44,12 +46,11 @@ public class SalarioVO {
 		this.descricao = descricao;
 	}
 
-	public Integer getDiaMesRecebimento() {
+	public Date getDiaMesRecebimento() {
 		return diaMesRecebimento;
 	}
 
-	public void setDiaMesRecebimento(Integer diaMesRecebimento) {
+	public void setDiaMesRecebimento(Date diaMesRecebimento) {
 		this.diaMesRecebimento = diaMesRecebimento;
 	}
-
 }
