@@ -18,7 +18,7 @@ public class ListaUsuariosBean {
 	@PostConstruct
 	private void obterLista() {
 		UsuarioDAO dao = new UsuarioDAO();
-		this.listaUsuarios = dao.obterListaPorConta("");
+		this.listaUsuarios = dao.obterListaPorConta("d001824f-596e-4f4b-8252-f815cff6de5b");
 	}
 
 	public void excluir(UsuarioVO vo) {

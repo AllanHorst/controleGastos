@@ -1,7 +1,9 @@
 package br.edu.unisep.model.vo;
 
+import java.util.ArrayList;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -23,9 +25,12 @@ public class ContaPagarReceberVO {
 	private Double valor;
 
 	private String tipo;
-	
-	@OneToMany
-	private List<ParcelaVO> parcelas;
+
+	@ManyToOne
+	private UsuarioVO usuario;
+
+	@OneToMany(mappedBy = "contaPagarReceber", cascade = CascadeType.PERSIST)
+	private List<ParcelaVO> parcelas = new ArrayList<ParcelaVO>();
 
 	public String getId() {
 		return id;
@@ -49,6 +54,14 @@ public class ContaPagarReceberVO {
 
 	public void setValor(Double valor) {
 		this.valor = valor;
+	}
+
+	public UsuarioVO getUsuario() {
+		return usuario;
+	}
+
+	public void setUsuario(UsuarioVO usuario) {
+		this.usuario = usuario;
 	}
 
 	/**

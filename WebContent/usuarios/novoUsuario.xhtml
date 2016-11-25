@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core">
+<head>
+	<meta charset="utf-8" />
+	<title></title>
+</head>
+<body>
+	<ui:composition template="../template.xhtml">
+		<ui:define name="conteudo">
+			
+			<div class="col s6 offset-s3">
+				<h:form styleClass="container">
+					<h4>Novo usuário</h4>
+					<div class="col s12">
+						<div class="row">
+							<div class="col s8 input-field">
+								<h:outputLabel value="Nome" for="nome" />
+								<h:inputText value="#{novoUsuarioBean.usuario.nome}"
+									required="true" requiredMessage="Campo obrigatório"
+									id="nome" />
+						
+								<h:message for="nome" styleClass="error-message" />
+							</div>
+						</div>
+						<div class="row">
+							<div class="col s8 input-field">
+								<h:outputLabel value="E-mail" for="email"/>
+								<h:inputText value="#{novoUsuarioBean.usuario.email}"
+									required="true" requiredMessage="Campo obrigatório"
+									id="email" />
+								<h:message for="email" styleClass="error-message" />
+							</div>
+						</div>
+						
+						<div class="row">
+							<div class="col s4 input-field">
+								<h:outputLabel value="senha" for="senha"/>
+								<h:inputSecret value="#{novoUsuarioBean.usuario.senha}"
+									required="true" requiredMessage="Campo obrigatório"
+									id="senha" />
+								<h:message for="senha" styleClass="error-message" />
+							</div>
+						</div>
+						<div class="row">
+							<div class="col s6 input-field">
+								<span style="color:#9e9e9e">Administrador</span>
+								<h:selectOneRadio value="#{novoUsuarioBean.usuario.administrador}" id="admin"
+									styleClass="browser-default">
+									<f:selectItem itemValue="SIM" itemLabel="Sim"/>
+									<f:selectItem itemValue="NAO" itemLabel="Não"/>  
+								</h:selectOneRadio>
+								
+							</div>
+						</div>
+						<div class="row">
+							<div class="col s12 input-field">
+								<h:commandButton value="Cancelar" styleClass="btn grey lighteen-1" action="listaUsuarios?faces-redirect=true" immediate="true"/>&#160;
+								<h:commandButton value="Salvar" styleClass="btn btn-primary" action="#{novoUsuarioBean.salvar}"></h:commandButton>
+							</div>
+						</div>
+					</div>
+				</h:form>
+			</div>
+		</ui:define>
+	</ui:composition>
+</body>
+</html>

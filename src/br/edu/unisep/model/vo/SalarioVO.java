@@ -1,10 +1,9 @@
 package br.edu.unisep.model.vo;
 
-import java.util.Date;
-
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 
 import org.hibernate.annotations.GenericGenerator;
 
@@ -20,7 +19,10 @@ public class SalarioVO {
 
 	private String descricao;
 
-	private Date diaMesRecebimento;
+	@ManyToOne
+	private UsuarioVO usuario;
+
+	private Integer diaMesRecebimento;
 
 	public String getId() {
 		return id;
@@ -46,11 +48,20 @@ public class SalarioVO {
 		this.descricao = descricao;
 	}
 
-	public Date getDiaMesRecebimento() {
+	public Integer getDiaMesRecebimento() {
 		return diaMesRecebimento;
 	}
 
-	public void setDiaMesRecebimento(Date diaMesRecebimento) {
+	public void setDiaMesRecebimento(Integer diaMesRecebimento) {
 		this.diaMesRecebimento = diaMesRecebimento;
 	}
+
+	public UsuarioVO getUsuario() {
+		return usuario;
+	}
+
+	public void setUsuario(UsuarioVO usuario) {
+		this.usuario = usuario;
+	}
+
 }

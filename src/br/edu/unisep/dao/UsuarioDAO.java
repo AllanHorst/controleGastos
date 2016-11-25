@@ -14,12 +14,14 @@ public class UsuarioDAO extends MongoDAO<UsuarioVO> {
 
 	public List<UsuarioVO> obterListaPorConta(String idConta) {
 		Session session = MongoDBSessionFactory.getSession();
-		Query q = session.createQuery("from " + ContaVO.class.getName());
-//		Query q = session.createQuery("from " + ContaVO.class.getName() + "where id = :ID");
-//		q.setString("ID", idConta);
+		Query q = session.createQuery("from " + UsuarioVO.class.getName() + " where conta.id = :ID ");
+		q.setString("ID", idConta);
+		
 		ContaVO conta = (ContaVO) q.uniqueResult();
-
 		session.close();
+		if (conta == null) {
+			return null;
+		}
 		return conta.getUsuarios();
 	}
 }

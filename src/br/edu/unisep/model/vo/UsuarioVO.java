@@ -1,11 +1,13 @@
 package br.edu.unisep.model.vo;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 
 import org.hibernate.annotations.GenericGenerator;
 
@@ -26,10 +28,13 @@ public class UsuarioVO {
 	private String senha;
 
 	@ManyToOne
-	private List<SalarioVO> listaSalarios;
+	private ContaVO conta;
 
-	@ManyToOne
-	private List<ContaPagarReceberVO> listaContasPagarReceber;
+	@OneToMany(mappedBy = "usuario")
+	private List<SalarioVO> listaSalarios = new ArrayList<SalarioVO>();
+
+	@OneToMany(mappedBy = "usuario")
+	private List<ContaPagarReceberVO> listaContasPagarReceber = new ArrayList<ContaPagarReceberVO>();
 
 	public String getId() {
 		return id;

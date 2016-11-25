@@ -5,10 +5,9 @@ import java.util.Date;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 
 import org.hibernate.annotations.GenericGenerator;
-
-import br.edu.unisep.model.vo.ContaPagarReceberVO.tipoPagarReceber;
 
 @Entity
 public class ParcelaVO {
@@ -25,6 +24,9 @@ public class ParcelaVO {
 	private Integer numero;
 
 	private String situacao;
+
+	@ManyToOne
+	private ContaPagarReceberVO contaPagarReceber;
 
 	public String getId() {
 		return id;
@@ -56,6 +58,14 @@ public class ParcelaVO {
 
 	public void setNumero(Integer numero) {
 		this.numero = numero;
+	}
+
+	public ContaPagarReceberVO getContaPagarReceber() {
+		return contaPagarReceber;
+	}
+
+	public void setContaPagarReceber(ContaPagarReceberVO contaPagarReceber) {
+		this.contaPagarReceber = contaPagarReceber;
 	}
 
 	/**
