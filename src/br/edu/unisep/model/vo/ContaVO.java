@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
@@ -18,7 +19,7 @@ public class ContaVO {
 	@GenericGenerator(name = "uuid", strategy = "uuid2")
 	private String id;
 
-	@OneToMany(mappedBy = "conta")
+	@OneToMany(mappedBy = "conta", fetch = FetchType.EAGER)
 	private List<UsuarioVO> usuarios = new ArrayList<UsuarioVO>();
 
 	public List<UsuarioVO> getUsuarios() {

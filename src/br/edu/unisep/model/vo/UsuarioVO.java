@@ -26,7 +26,7 @@ public class UsuarioVO {
 	private String email;
 
 	private String senha;
-
+	
 	@ManyToOne
 	private ContaVO conta;
 
@@ -90,6 +90,14 @@ public class UsuarioVO {
 
 	public void setListaContasPagarReceber(List<ContaPagarReceberVO> listaContasPagarReceber) {
 		this.listaContasPagarReceber = listaContasPagarReceber;
+	}
+	
+	public ContaVO getConta() {
+		return conta;
+	}
+	
+	public void setConta(ContaVO conta) {
+		this.conta = conta;
 	}
 
 }

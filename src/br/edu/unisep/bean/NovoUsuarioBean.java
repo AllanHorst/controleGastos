@@ -21,9 +21,10 @@ public class NovoUsuarioBean {
 	}
 
 	public String salvar() {
-		ContaVO obj = new ContaVO();
 		MongoDAO<ContaVO> daoConta = new MongoDAO<ContaVO>();
-		daoConta.salvar(obj);
+		ContaVO conta = daoConta.consultar(ContaVO.class, "d001824f-596e-4f4b-8252-f815cff6de5b");
+
+		usuario.setConta(conta);
 
 		UsuarioDAO dao = new UsuarioDAO();
 		dao.salvar(usuario);

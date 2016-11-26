@@ -24,6 +24,7 @@ public class ListaUsuariosBean {
 	public void excluir(UsuarioVO vo) {
 		UsuarioDAO dao = new UsuarioDAO();
 		dao.excluir(vo);
+		obterLista();
 	}
 
 	public List<UsuarioVO> getListaUsuarios() {

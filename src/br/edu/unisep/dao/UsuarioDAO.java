@@ -1,5 +1,6 @@
 package br.edu.unisep.dao;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.hibernate.Query;
@@ -14,14 +15,15 @@ public class UsuarioDAO extends MongoDAO<UsuarioVO> {
 
 	public List<UsuarioVO> obterListaPorConta(String idConta) {
 		Session session = MongoDBSessionFactory.getSession();
-		Query q = session.createQuery("from " + UsuarioVO.class.getName() + " where conta.id = :ID ");
+		Query q = session.createQuery("from " + ContaVO.class.getName() + " where id = :ID");
 		q.setString("ID", idConta);
-		
+
 		ContaVO conta = (ContaVO) q.uniqueResult();
+		List<UsuarioVO> lista = conta.getUsuarios();
 		session.close();
 		if (conta == null) {
-			return null;
+			return new ArrayList<UsuarioVO>();
 		}
-		return conta.getUsuarios();
+		return lista;
 	}
 }
