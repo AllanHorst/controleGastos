@@ -16,7 +16,7 @@ public class NovoUsuarioBean {
 	private UsuarioVO usuario;
 
 	@PostConstruct
-	private void obterLista() {
+	private void inicializar() {
 		usuario = new UsuarioVO();
 	}
 
@@ -27,7 +27,11 @@ public class NovoUsuarioBean {
 		usuario.setConta(conta);
 
 		UsuarioDAO dao = new UsuarioDAO();
-		dao.salvar(usuario);
+		if (usuario.getId() == null) {
+			dao.salvar(usuario);
+		} else {
+			dao.alterar(usuario);
+		}
 		return "listaUsuarios?faces-redirect=true";
 	}
 

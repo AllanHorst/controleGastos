@@ -32,6 +32,11 @@
 		
 					<h:column>
 						<f:facet name="header"></f:facet>
+						<h:commandLink action="novoUsuario.jsf"
+							styleClass="text-darken-1">
+							<f:setPropertyActionListener target="#{novoUsuarioBean.usuario}" value="#{u}" />
+							<i class="fa fa-pencil-square-o fa-lg"></i>
+						</h:commandLink>
 						<h:commandLink actionListener="#{listaUsuariosBean.excluir(u)}"
 							styleClass="red-text text-darken-1">
 							<i class="fa fa-trash-o fa-lg"></i>

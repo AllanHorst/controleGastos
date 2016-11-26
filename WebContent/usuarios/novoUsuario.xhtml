@@ -17,6 +17,7 @@
 					<h4>Novo usuário</h4>
 					<div class="col s12">
 						<div class="row">
+							<h:inputHidden value="#{novoUsuarioBean.usuario.id}" />
 							<div class="col s8 input-field">
 								<h:outputLabel value="Nome" for="nome" />
 								<h:inputText value="#{novoUsuarioBean.usuario.nome}"
