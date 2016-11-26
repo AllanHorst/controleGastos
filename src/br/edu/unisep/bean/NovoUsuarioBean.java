@@ -18,20 +18,23 @@ public class NovoUsuarioBean {
 	@PostConstruct
 	private void inicializar() {
 		usuario = new UsuarioVO();
+		System.out.println(usuario.getId());
 	}
 
 	public String salvar() {
 		MongoDAO<ContaVO> daoConta = new MongoDAO<ContaVO>();
 		ContaVO conta = daoConta.consultar(ContaVO.class, "d001824f-596e-4f4b-8252-f815cff6de5b");
-
+		
 		usuario.setConta(conta);
 
 		UsuarioDAO dao = new UsuarioDAO();
-		if (usuario.getId() == null) {
+		if (usuario.getId() == null || usuario.getId().equals("")) {
+			usuario.setId(null);
 			dao.salvar(usuario);
 		} else {
 			dao.alterar(usuario);
 		}
+		
 		return "listaUsuarios?faces-redirect=true";
 	}
 

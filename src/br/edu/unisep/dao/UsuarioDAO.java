@@ -20,10 +20,12 @@ public class UsuarioDAO extends MongoDAO<UsuarioVO> {
 
 		ContaVO conta = (ContaVO) q.uniqueResult();
 		List<UsuarioVO> lista = conta.getUsuarios();
-		session.close();
-		if (conta == null) {
+		
+		if (lista == null) {
 			return new ArrayList<UsuarioVO>();
 		}
+		
+		session.close();
 		return lista;
 	}
 }
