@@ -5,6 +5,7 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
 
 import br.edu.unisep.dao.UsuarioDAO;
+import br.edu.unisep.model.vo.ContaPagarReceberVO.TipoPagarReceber;
 import br.edu.unisep.model.vo.ContaVO;
 import br.edu.unisep.model.vo.UsuarioVO;
 import br.edu.unisep.mongodb.dao.MongoDAO;
@@ -18,13 +19,12 @@ public class NovoUsuarioBean {
 	@PostConstruct
 	private void inicializar() {
 		usuario = new UsuarioVO();
-		System.out.println(usuario.getId());
 	}
 
 	public String salvar() {
 		MongoDAO<ContaVO> daoConta = new MongoDAO<ContaVO>();
 		ContaVO conta = daoConta.consultar(ContaVO.class, "d001824f-596e-4f4b-8252-f815cff6de5b");
-		
+
 		usuario.setConta(conta);
 
 		UsuarioDAO dao = new UsuarioDAO();
@@ -34,7 +34,7 @@ public class NovoUsuarioBean {
 		} else {
 			dao.alterar(usuario);
 		}
-		
+
 		return "listaUsuarios?faces-redirect=true";
 	}
 

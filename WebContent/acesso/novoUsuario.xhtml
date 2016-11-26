@@ -29,21 +29,23 @@
 						</div>
 						<div class="row">
 							<div class="col s8 input-field">
-								<h:outputLabel value="E-mail" for="email"/>
+								<h:outputLabel value="E-mail" for="emailCadastro"/>
 								<h:inputText value="#{novoUsuarioBean.usuario.email}"
+									autocomplete="false"
 									required="true" requiredMessage="Campo obrigatório"
-									id="email" />
-								<h:message for="email" styleClass="error-message" />
+									id="emailCadastro" />
+								<h:message for="emailCadastro" styleClass="error-message" />
 							</div>
 						</div>
 						
 						<div class="row">
 							<div class="col s4 input-field">
-								<h:outputLabel value="senha" for="senha"/>
+								<h:outputLabel value="senha" for="senhaCadastro"/>
 								<h:inputSecret value="#{novoUsuarioBean.usuario.senha}"
 									required="true" requiredMessage="Campo obrigatório"
-									id="senha" />
-								<h:message for="senha" styleClass="error-message" />
+									autocomplete="false"
+									id="senhaCadastro" />
+								<h:message for="senhaCadastro" styleClass="error-message" />
 							</div>
 						</div>
 						<div class="row">

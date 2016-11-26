@@ -13,39 +13,42 @@
 		<ui:define name="conteudo">
 
 			<h:form styleClass="container">
-				<h:dataTable value="#{listaUsuariosBean.listaUsuarios}" var="u"
+				<h:dataTable value="#{listaContasBean.listaContas}" var="conta"
 					styleClass="bordered striped">
 					<h:column>
-						<f:facet name="header">Nome</f:facet>
-						<h:outputText value="#{u.nome}"></h:outputText>
+						<f:facet name="header">Descrição</f:facet>
+						<h:outputText value="#{conta.descricao}"></h:outputText>
 					</h:column>
 		
 					<h:column>
-						<f:facet name="header">E-mail</f:facet>
-						<h:outputText value="#{u.email}"></h:outputText>
+						<f:facet name="header">Tipo</f:facet>
+						<h:outputText value="#{conta.tipo}"></h:outputText>
 					</h:column>
 		
 					<h:column>
-						<f:facet name="header">Administrador</f:facet>
-						<h:outputText value="#{u.administrador}"></h:outputText>
+						<f:facet name="header">Valor</f:facet>
+						<h:outputText value="#{conta.valor}">
+							<f:convertNumber pattern="#,###,##0.00"/>
+						</h:outputText>
 					</h:column>
 		
 					<h:column>
-						<f:facet name="header"></f:facet>
-						<h:commandLink action="novoUsuario.jsf"
+						 <f:facet name="header"></f:facet>
+						<h:commandLink action="novaConta.jsf"
 							styleClass="text-darken-1">
-							<f:setPropertyActionListener target="#{novoUsuarioBean.usuario}" value="#{u}" />
+							<f:setPropertyActionListener target="#{novaContaBean.conta}" value="#{conta}" />
 							<i class="fa fa-pencil-square-o fa-lg"></i>
 						</h:commandLink>
-						<h:commandLink actionListener="#{listaUsuariosBean.excluir(u)}"
+						
+						<h:commandLink actionListener="#{listaContasBean.excluir(conta)}"
 							styleClass="red-text text-darken-1">
 							<i class="fa fa-trash-o fa-lg"></i>
-						</h:commandLink>
+						</h:commandLink> 
 					</h:column>
 		
 				</h:dataTable>
 				<br></br>
-				<a href="novoUsuario.jsf" class="btn btn-primary" >Novo</a>
+				<a href="novaConta.jsf" class="btn btn-primary" >Novo</a>
 			</h:form>
 		</ui:define>
 	</ui:composition>

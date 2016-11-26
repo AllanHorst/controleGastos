@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
@@ -26,14 +27,14 @@ public class UsuarioVO {
 	private String email;
 
 	private String senha;
-	
+
 	@ManyToOne
 	private ContaVO conta;
 
-	@OneToMany(mappedBy = "usuario")
+	@OneToMany(mappedBy = "usuario", fetch = FetchType.EAGER)
 	private List<SalarioVO> listaSalarios = new ArrayList<SalarioVO>();
 
-	@OneToMany(mappedBy = "usuario")
+	@OneToMany(mappedBy = "usuario", fetch = FetchType.EAGER)
 	private List<ContaPagarReceberVO> listaContasPagarReceber = new ArrayList<ContaPagarReceberVO>();
 
 	public String getId() {
@@ -91,11 +92,11 @@ public class UsuarioVO {
 	public void setListaContasPagarReceber(List<ContaPagarReceberVO> listaContasPagarReceber) {
 		this.listaContasPagarReceber = listaContasPagarReceber;
 	}
-	
+
 	public ContaVO getConta() {
 		return conta;
 	}
-	
+
 	public void setConta(ContaVO conta) {
 		this.conta = conta;
 	}

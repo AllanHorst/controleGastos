@@ -3,8 +3,8 @@ package br.edu.unisep.model.vo;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
@@ -29,7 +29,7 @@ public class ContaPagarReceberVO {
 	@ManyToOne
 	private UsuarioVO usuario;
 
-	@OneToMany(mappedBy = "contaPagarReceber", cascade = CascadeType.PERSIST)
+	@OneToMany(mappedBy = "contaPagarReceber", fetch = FetchType.EAGER)
 	private List<ParcelaVO> parcelas = new ArrayList<ParcelaVO>();
 
 	public String getId() {
@@ -65,7 +65,7 @@ public class ContaPagarReceberVO {
 	}
 
 	/**
-	 * Usar enum {@link tipoPagarReceber} para fazer operações,
+	 * Usar enum {@link TipoPagarReceber} para fazer operações,
 	 * tipoPagarReceber.RECEBER.getIdentificador()
 	 */
 	public String getTipo() {
@@ -73,7 +73,7 @@ public class ContaPagarReceberVO {
 	}
 
 	/**
-	 * Usar enum {@link tipoPagarReceber} para fazer operações,
+	 * Usar enum {@link TipoPagarReceber} para fazer operações,
 	 * tipoPagarReceber.RECEBER.getIdentificador()
 	 */
 	public void setTipo(String tipo) {
@@ -88,13 +88,13 @@ public class ContaPagarReceberVO {
 		this.parcelas = parcelas;
 	}
 
-	public enum tipoPagarReceber {
+	public enum TipoPagarReceber {
 		PAGAR("PAGAR", "Pagar"), RECEBER("RECEBER", "Receber");
 
 		private String identificador;
 		private String descricao;
 
-		private tipoPagarReceber(String identificador, String descricao) {
+		private TipoPagarReceber(String identificador, String descricao) {
 			this.identificador = identificador;
 			this.descricao = descricao;
 		}

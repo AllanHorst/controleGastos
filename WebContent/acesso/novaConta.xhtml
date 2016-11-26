@@ -10,7 +10,7 @@
 	<title>Contas a Receber/Pagar</title>
 </head>
 <body>
-	<ui:composition template="template.xhtml">
+	<ui:composition template="../template.xhtml">
 		<ui:define name="conteudo">
 			<h:form styleClass="container">
 			
@@ -37,8 +37,11 @@
 							<h:outputLabel value="Valor" for="valor" />
 							<h:inputText value="#{novaContaBean.conta.valor}" 
 								required="true" 
+								autocomplete="false"
 								requiredMessage="O campo Valor é obrigatório !"
-								id="valor"/>
+								id="valor">
+								<f:convertNumber pattern="#,###,##0.00"/> 
+							</h:inputText>
 								
 							<h:message for="valor" styleClass="error-message"></h:message>
 						</div>
@@ -48,37 +51,33 @@
 				<div class="row">
 					<div class="Col s6">
 						<div class="input-field col s5">
-							<h:outputLabel value="Tipo da Conta" for="tipo" />
 							<h:selectOneMenu value="#{novaContaBean.conta.tipo}" 
 								styleClass="browser-default"
-		
-								id="tipo"/>
+								id="tipo">
+								<f:selectItems value="#{novaContaBean.tipoPagarReceber}"
+												 var="tipo" itemLabel="#{tipo.descricao}" itemValue="#{f.identificador}"/>
+							</h:selectOneMenu>
+								
 							
 							<h:message for="tipo" styleClass="error-message" />
 						</div>
 					</div>
 				</div>
 				
-				<div class="row">
+				<!--  <div class="row">
 					<div class="Col s2">
 						<div class="input-field col s2">
 							<h:outputLabel value="Quantidade de Parcelas" for="parcelas" />
 							<h:inputText value="#{novaContaBean.conta.parcelas}" />
 						</div>
 					</div>
+				</div> -->
+				<div class="row">
+					<div class="col s12 input-field">
+						<h:commandButton value="Cancelar" styleClass="btn grey lighteen-1" action="listaContas?faces-redirect=true" immediate="true"/>&#160;
+						<h:commandButton value="Salvar" styleClass="btn btn-primary" action="#{novaContaBean.salvar}"></h:commandButton>
+					</div>
 				</div>
-				
-				<h:commandButton class="btn grey lighteen-1" 
-					value="Cancelar"
-					action="index?faces-redirect=true"
-					immediate="true"/>	
-						
-				&#160;
-						
-				<h:commandButton class="btn btn-primary" 
-					value="Salvar" 
-					action="#{novaContaBean.salvar}" /> 	
-					
 			</h:form>
 		</ui:define>
 	</ui:composition>
