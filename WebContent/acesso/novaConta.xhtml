@@ -70,7 +70,7 @@
 					<div class="Col s3">
 							<div class="input-field col s3">
 								<h:outputLabel value="Data" for="data"></h:outputLabel>
-								<h:inputText value="#{novaContaBean.data}"
+								<h:inputText value="#{novaContaBean.dataInicial}"
 									required="true"
 									requiredMessage="Campo obrigatório !"
 									id="data">
@@ -97,6 +97,32 @@
 						<h:commandButton actionListener="#{novaContaBean.gerarParcelas}" value="Gerar parcelas" styleClass="btn grey lighteen-1"/>
 					</div>
 				</div>
+				
+				<h:dataTable value="#{novaContaBean.conta.parcelas}" var="parcela"
+					styleClass="bordered striped">
+					<h:column>
+						<f:facet name="header">Descrição</f:facet>
+						<h:outputText value="#{parcela.numero}"></h:outputText>
+					</h:column>
+					<h:column>
+						<f:facet name="header">Data vencimento</f:facet>
+						<h:outputText value="#{parcela.dataVencimento}">
+							<f:convertDateTime pattern="dd/MM/yyyy"></f:convertDateTime>
+						</h:outputText>
+					</h:column>
+					<h:column>
+						<f:facet name="header">Situação</f:facet>
+						<h:outputText value="#{parcela.situacao}"></h:outputText>
+					</h:column>
+					<h:column>
+						<f:facet name="header">Valor</f:facet>
+						<h:outputText value="#{parcela.valor}">
+							<f:convertNumber pattern="#,###,##0.00"/>
+						</h:outputText>
+					</h:column>
+				</h:dataTable>
+				
+				
 				<div class="row">
 					<div class="col s12 input-field">
 						<h:commandButton value="Cancelar" styleClass="btn grey lighteen-1" action="listaContas?faces-redirect=true" immediate="true"/>&#160;
