@@ -13,39 +13,42 @@
 		<ui:define name="conteudo">
 
 			<h:form styleClass="container">
-				<h:dataTable value="#{listaUsuariosBean.listaUsuarios}" var="u"
+				<h:dataTable value="#{listaSalariosBean.listaSalarios}" var="u"
 					styleClass="bordered striped">
 					<h:column>
-						<f:facet name="header">Nome</f:facet>
-						<h:outputText value="#{u.nome}"></h:outputText>
+						<f:facet name="header">Descrição</f:facet>
+						<h:outputText value="#{u.descricao}"></h:outputText>
 					</h:column>
 		
 					<h:column>
-						<f:facet name="header">E-mail</f:facet>
-						<h:outputText value="#{u.email}"></h:outputText>
+						<f:facet name="header">Usuario</f:facet>
+						<h:outputText value="#{u.usuario.nome}"></h:outputText>
 					</h:column>
 		
 					<h:column>
-						<f:facet name="header">Administrador</f:facet>
-						<h:outputText value="#{u.administrador}"></h:outputText>
+						<f:facet name="header">Data</f:facet>
+						<h:outputText value="#{u.diaMesRecebimento}"></h:outputText>
 					</h:column>
-		
+					<h:column>
+						<f:facet name="header">Valor</f:facet>
+						<h:outputText value="#{u.valor}"></h:outputText>
+					</h:column>
+					
 					<h:column>
 						<f:facet name="header"></f:facet>
-						<h:commandLink action="novoUsuario.jsf"
+						<h:commandLink action="novoSalario.jsf"
 							styleClass="text-darken-1">
-							<f:setPropertyActionListener target="#{novoUsuarioBean.usuario}" value="#{u}" />
+							<f:setPropertyActionListener target="#{novaReceitaBean.salario}" value="#{u}" />
 							<i class="fa fa-pencil-square-o fa-lg"></i>
 						</h:commandLink>
-						<h:commandLink actionListener="#{listaUsuariosBean.excluir(u)}"
+						<h:commandLink actionListener="#{listaSalariosBean.excluir(u)}"
 							styleClass="red-text text-darken-1">
 							<i class="fa fa-trash-o fa-lg"></i>
 						</h:commandLink>
 					</h:column>
-		
 				</h:dataTable>
 				<br></br>
-				<a href="novoUsuario.jsf" class="btn btn-primary" >Novo</a>
+				
 			</h:form>
 		</ui:define>
 	</ui:composition>

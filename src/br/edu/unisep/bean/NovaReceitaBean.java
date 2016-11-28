@@ -16,7 +16,7 @@ public class NovaReceitaBean {
 		MongoDAO<SalarioVO> dao = new MongoDAO<SalarioVO>();
 		dao.salvar(salario);
 		
-		return "index?faces-redirect=true";
+		return "listaSalarios?faces-redirect=true";
 	}
 
 	public SalarioVO getSalario() {

@@ -39,7 +39,7 @@
 					<h:dataTable rendered="#{acessoBean.operador}" value="#{listaContasBean.listaContas}" var="l">
 						<h:column>
 							<f:facet name="header">Descrição</f:facet>
-							<h:outputText rendered="#{l.id == }" value="l.descricao" />
+							<h:outputText value="l.descricao" />
 						</h:column>
 						<h:column>
 							<f:facet name="header">Valor</f:facet>
