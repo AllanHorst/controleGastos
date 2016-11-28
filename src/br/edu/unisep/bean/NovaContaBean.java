@@ -1,5 +1,7 @@
 package br.edu.unisep.bean;
 
+import java.util.Calendar;
+
 import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
@@ -16,11 +18,18 @@ public class NovaContaBean {
 
 	private ContaPagarReceberVO conta = new ContaPagarReceberVO();
 
+	private Integer quantidadeParcelas;
+
+	private Calendar data;
+
+	private Integer diaPagamento;
+
 	private TipoPagarReceber[] tipoPagarReceber = TipoPagarReceber.values();
 
 	@PostConstruct
 	private void inicializar() {
 		conta = new ContaPagarReceberVO();
+		this.quantidadeParcelas = 1;
 	}
 
 	public String salvar() {
@@ -41,6 +50,10 @@ public class NovaContaBean {
 		return "listaContas?faces-redirect=true";
 	}
 
+	public void gerarParcelas() {
+
+	}
+
 	public ContaPagarReceberVO getConta() {
 		return conta;
 	}
@@ -56,4 +69,29 @@ public class NovaContaBean {
 	public void setTipoPagarReceber(TipoPagarReceber[] tipoPagarReceber) {
 		this.tipoPagarReceber = tipoPagarReceber;
 	}
+
+	public Integer getQuantidadeParcelas() {
+		return quantidadeParcelas;
+	}
+
+	public void setQuantidadeParcelas(Integer quantidadeParcelas) {
+		this.quantidadeParcelas = quantidadeParcelas;
+	}
+
+	public Calendar getData() {
+		return data;
+	}
+
+	public void setData(Calendar data) {
+		this.data = data;
+	}
+
+	public Integer getDiaPagamento() {
+		return diaPagamento;
+	}
+
+	public void setDiaPagamento(Integer diaPagamento) {
+		this.diaPagamento = diaPagamento;
+	}
+
 }
