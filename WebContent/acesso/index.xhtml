@@ -6,17 +6,58 @@
 	xmlns:f="http://xmlns.jcp.org/jsf/core">
 <head>
 	<meta charset="utf-8" />
-	<title></title>
+	<title>Histórico</title>
 </head>
 <body>
-	<ui:composition template="template.xhtml">
-		<ui:define name="conteudo">
-
-			<h:form styleClass="container">
-				<h1>Não implementado</h1>
-		
-			</h:form>
-		</ui:define>
-	</ui:composition>
+<ui:composition template="template.xhtml">
+	<ui:define name="conteudo">
+		<h:form styleClass="container">
+			
+			<h1>Histórico do Mês</h1>
+			
+			<div class="row">
+				<div class="col s12">
+					<h:dataTable rendered="#{acessoBean.admin}" value="#{listaContasBean.listaContas}" var="l">
+						<h:column>
+							<f:facet name="header">Descrição</f:facet>
+							<h:outputText value="l.descricao" />
+						</h:column>
+						<h:column>
+							<f:facet name="header">Valor</f:facet>
+							<h:outputText value="l.valor"></h:outputText>
+						</h:column>
+						<h:column>
+							<f:facet name="header">Tipo</f:facet>
+							<h:outputText value="l.tipo"></h:outputText>
+						</h:column>
+						<h:column>
+							<f:facet name="header">Usuario</f:facet>
+							<h:outputText value="l.usuario.nome"></h:outputText>
+						</h:column>
+					</h:dataTable>
+					
+					<h:dataTable rendered="#{acessoBean.operador}" value="#{listaContasBean.listaContas}" var="l">
+						<h:column>
+							<f:facet name="header">Descrição</f:facet>
+							<h:outputText rendered="#{l.id == }" value="l.descricao" />
+						</h:column>
+						<h:column>
+							<f:facet name="header">Valor</f:facet>
+							<h:outputText value="l.valor"></h:outputText>
+						</h:column>
+						<h:column>
+							<f:facet name="header">Tipo</f:facet>
+							<h:outputText value="l.tipo"></h:outputText>
+						</h:column>
+						<h:column>
+							<f:facet name="header">Usuario</f:facet>
+							<h:outputText value="l.usuario.nome"></h:outputText>
+						</h:column>
+					</h:dataTable>		
+				</div>
+			</div>		
+		</h:form>
+	</ui:define>
+</ui:composition>
 </body>
 </html>
