@@ -18,16 +18,17 @@
 					<div class="input-field col s8">
 						<h:selectOneMenu value="#{novoUsuarioBean.usuario.id}" 
 								styleClass="browser-default"
+								required="true"
 								id="usuarios">
 								
 								<f:selectItems value="#{listaUsuariosBean.listaUsuarios}"
-												 var="usuarios" 
-												 itemLabel="#{tipo.descricao}" 
-												 itemValue="#{tipo.identificador}"/>
+												 var="u" 
+												 itemLabel="#{u.nome}" 
+												 itemValue="#{u.id}"/>
 							</h:selectOneMenu>
 								
 							
-							<h:message for="tipo" styleClass="error-message" />
+							<h:message for="usuarios" styleClass="error-message" />
 					</div>
 				</div>
 			</div>
