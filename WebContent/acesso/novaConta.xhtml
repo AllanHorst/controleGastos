@@ -55,7 +55,9 @@
 								styleClass="browser-default"
 								id="tipo">
 								<f:selectItems value="#{novaContaBean.tipoPagarReceber}"
-												 var="tipo" itemLabel="#{tipo.descricao}" itemValue="#{tipo.identificador}"/>
+												 var="u" 
+												 itemLabel="#{u.nome}" 
+												 itemValue="#{u.id}"/>
 							</h:selectOneMenu>
 								
 							
