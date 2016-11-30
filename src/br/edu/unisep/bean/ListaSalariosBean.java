@@ -18,7 +18,7 @@ public class ListaSalariosBean {
 	@PostConstruct
 	public void listarSalarios(){
 		MongoDAO<SalarioVO> dao = new MongoDAO<SalarioVO>();
-		dao.listar(SalarioVO.class);
+		listaSalarios = dao.listar(SalarioVO.class);
 	}
 	
 	public void excluir(SalarioVO salario){
